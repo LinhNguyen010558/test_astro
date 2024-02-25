@@ -1,23 +1,13 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-# Có 1 thư viện rất nhiều workflows có rất nhiều workflows có sẵn và dc public
-
-name: Node.js CI
-
-#Sự kiện gì sẽ xảy ra để chạy job 
+name: CI Workflow
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-#Định nghĩa các công việc tự động chạy
 jobs:
-
-#Tên của 1 job có thể thay đổi bất kì
   cypress-install:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout
@@ -38,7 +28,7 @@ jobs:
           path: build
 
    cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: install
     steps:
       - name: Checkout
@@ -53,5 +43,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: npm run test
           browser: chrome
