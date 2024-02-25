@@ -13,6 +13,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Install dependencies
+      uses: cypress-io/github-action@v5
+      with:
+        runTests: false
+
     - name: Cypress run
       uses: cypress-io/github-action@v5
       continue-on-error: true
