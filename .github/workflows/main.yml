@@ -29,7 +29,7 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-22.04
-    needs: install
+    needs: cypress-install
     steps:
       - name: Checkout
         uses: actions/checkout@v4
