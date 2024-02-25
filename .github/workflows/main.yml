@@ -17,11 +17,12 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         # Disable running of tests within install job
-        runTests: false
+        build: npm run build
+        start: npm run dev
     
-    - name: Cypress run
-      uses: cypress-io/github-action@v5
-      continue-on-error: true
-      with:
-        install: false
+    # - name: Cypress run
+    #   uses: cypress-io/github-action@v5
+    #   continue-on-error: true
+    #   with:
+    #     install: false
  
