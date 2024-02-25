@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
+    "test": "npx cypress run",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
