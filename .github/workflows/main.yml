@@ -27,7 +27,7 @@ jobs:
         if-no-files-found: error
         path: build
 
-   cypress-run:
+  cypress-run:
     runs-on: ubuntu-22.04
     needs: install
     steps:
