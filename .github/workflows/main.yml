@@ -37,6 +37,7 @@ jobs:
         start: npm run dev
   build:
     name: Build
+    needs: cypress-run
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
