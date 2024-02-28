@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI/CD Workflow develop
 on:
   push:
     branches: [ "develop" ]
@@ -23,6 +23,7 @@ env:
 
 
 jobs:
+  #CI (test) 
   cypress-run:
     runs-on: ubuntu-22.04
 
@@ -35,6 +36,8 @@ jobs:
       with:
         build: npm run build
         start: npm run dev
+
+  #CI (build) 
   build:
     name: Build
     needs: cypress-run
@@ -62,7 +65,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
       - name: Setup Pages
@@ -81,7 +84,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ${{ env.BUILD_PATH }}/dist
-     
+
+  #CD (github pages) 
   deploy:
     environment:
       name: github-pages
