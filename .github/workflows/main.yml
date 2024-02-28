@@ -33,8 +33,7 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/test_astro
+            cd /home/test_astro/dist
             git pull
-            npm install
+            npm ci
             npm run build
-            systemctl restart nginx
