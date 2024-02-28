@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "test": "npx cypress run",
-    "start": "astro dev",
+    "start": "serve dist/",
     "build": "astro build",
     "preview": "astro preview"
   },
@@ -14,6 +14,7 @@
     "prettier-plugin-astro": "^0.11.0"
   },
   "dependencies": {
-    "cypress": "^13.6.6"
+    "cypress": "^13.6.6",
+    "serve": "^14.2.1"
   }
 }
