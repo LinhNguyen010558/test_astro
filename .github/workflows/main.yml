@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI/CD Workflow main
 on:
   push:
     branches: [ "main" ]
@@ -23,6 +23,8 @@ env:
 
 
 jobs:
+
+  # CI
   cypress-run:
     runs-on: ubuntu-22.04
 
@@ -36,7 +38,7 @@ jobs:
         build: npm run build
         start: npm run dev
 
-
+  # CD (VPS)
   deploy:
     needs: cypress-run
     runs-on: ubuntu-latest
